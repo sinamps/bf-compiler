@@ -2,6 +2,14 @@
 A compiler for the brainf**k language.
 
 
+## How to use optimizations:
+- Use `python bf2x86-64opt.py ../benches/hello.b` for no optimizations
+- Use `python bf2x86-64opt.py ../benches/hello.b --o-simpleloops` for only simple loops optimizations
+- Use `python bf2x86-64opt.py ../benches/hello.b --o-scanloops` for scan loops optimizations
+- Use `python bf2x86-64opt.py ../benches/hello.b -O` for both optimizations
+
+
+
 ## How to compile and run:
 1. First compile the C wrapper which calls the BF main after allocating the tape:
     - `gcc -c bf_wrapper.c -o bf_wrapper.o`
@@ -17,3 +25,5 @@ A compiler for the brainf**k language.
 ### Test environment:
 - Intel 13th gen x86-64 machine
 - On Linux Ubuntu 22.04
+
+
