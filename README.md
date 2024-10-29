@@ -1,10 +1,10 @@
 # bf-compiler
 A compiler for the brainf**k language.
 
-### BF Compiler in Java
+## BF Compiler in Java
 I rewrote the compiler in Java so that the partial evaluation phase could be fast.
 
-## How to build:
+### How to build:
 1. Install JDK:
     - Download dmg from [TEMURIN by ADOPTIUM](https://adoptium.net/temurin/releases/?os=any&arch=any)
     - or run `brew install --cask temurin` in terminal with homebrew installed (not tested)
@@ -12,7 +12,7 @@ I rewrote the compiler in Java so that the partial evaluation phase could be fas
 3. Run `java BFCompiler <bf-src-filepath> [-O | --o-simple-loops | --o-scanloops]` in terminal to compile the bf program _without_ partial evaluation
 4. Run `java BFCompilerPE <bf-src-filepath> [-O | --o-simple-loops | --o-scanloops]` in terminal to compile the bf program _with_ partial evaluation
 
-## How to compile and run:
+### How to compile and run:
 1. First compile the C wrapper which calls the BF main after allocating the tape:
     - `gcc -c bf_wrapper.c -o bf_wrapper.o`
 2. Compile a BF source file using the java compiler:
@@ -26,14 +26,14 @@ I rewrote the compiler in Java so that the partial evaluation phase could be fas
 
 The `measure_winp.py` script can be used to time the execution of benchmarks with and without partially evaluated compilation.
 
-## Test environment:
+### Test environment:
 - JDK 21 from [TEMURIN by ADOPTIUM](https://adoptium.net/temurin/releases/?os=any&arch=any)
 
 
 
 
-### BF Compiler in Python
-## How to use optimizations:
+## BF Compiler in Python
+### How to use optimizations:
 - Use `python bf2x86-64opt.py ../benches/hello.b` for no optimizations
 - Use `python bf2x86-64opt.py ../benches/hello.b --o-simpleloops` for only simple loops optimizations
 - Use `python bf2x86-64opt.py ../benches/hello.b --o-scanloops` for scan loops optimizations
@@ -41,7 +41,7 @@ The `measure_winp.py` script can be used to time the execution of benchmarks wit
 
 
 
-## How to compile and run:
+### How to compile and run:
 1. First compile the C wrapper which calls the BF main after allocating the tape:
     - `gcc -c bf_wrapper.c -o bf_wrapper.o`
 2. Compile a BF source file using the python compiler script:
