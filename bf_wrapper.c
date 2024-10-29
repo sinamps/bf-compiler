@@ -1,6 +1,7 @@
 // /*
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h> 
 #include <stddef.h>  // For NULL definition
 
 // Declare the assembly Brainfuck main function
@@ -19,12 +20,14 @@ int main() {
         perror("Failed to allocate memory for the tape");
         return 1;
     }
+    // After allocating the tape
+    memset(tape, 0, 50000 * sizeof(char));
 
     // Call the Brainfuck main function implemented in assembly
     bf_main(tape);
 
     // Free the allocated tape memory
-    free(tape);
+    // free(tape);
     return 0;
 }
 // */
