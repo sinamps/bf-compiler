@@ -28,6 +28,8 @@ The `measure_winp.py` script can be used to time the execution of benchmarks wit
 
 ### Test environment:
 - JDK 21 from [TEMURIN by ADOPTIUM](https://adoptium.net/temurin/releases/?os=any&arch=any)
+- Intel 13th gen x86-64 machine
+- On Linux Ubuntu 22.04
 
 
 
