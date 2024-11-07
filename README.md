@@ -1,6 +1,41 @@
 # bf-compiler
 A compiler for the brainf**k language.
 
+## BF Compiler in CPP
+### How to build:
+- on ubuntu on x86-64:
+    1. Install llvm version 16:
+        - `wget https://apt.llvm.org/llvm.sh`
+        - `chmod +x llvm.sh`
+        - `sudo ./llvm.sh 16`
+        - `sudo apt install llvm-16-dev`
+    2. Compile the compiler:
+        - `clang++-16 -std=c++11 bf2llvm.cpp 'llvm-config --cxxflags --ldflags --system-libs --libs core' -o bf2llvm`
+- On mac with aarm64:
+    1. Install llvm version 16:
+        - `brew install llvm@16`
+        - `export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"`
+        - `export LIBRARY_PATH="/opt/homebrew/opt/llvm@16/lib:$LIBRARY_PATH"`
+        - `export CPLUS_INCLUDE_PATH="/opt/homebrew/opt/llvm@16/include:$CPLUS_INCLUDE_PATH"`
+    2. Compile the compiler:
+        - `clang++ -std=c++11 bf2llvm.cpp -I/opt/homebrew/opt/llvm@16/include -L/opt/homebrew/opt/llvm@16/lib '"/opt/homebrew/opt/llvm@16/bin/llvm-config" --cxxflags --ldflags --system-libs --libs core' -lunwind -o bf2llvm`
+
+### How to compile and run:
+1. `clang -c bf_wrapper.c -o bf_wrapper.o`
+2. `./bf2llvm <bf_program_src.bf>`
+3. `clang -c program.ll -o program.o`
+4. `llc -filetype=obj program.ll -o program.o`
+5. `clang bf_wrapper.o program.o -o program`
+6. `./program`
+
+### Test environment:
+- Both Intel 13th gen x86-64 machine and Apple M3 aarch64 chip
+- On both Linux Ubuntu 22.04 and MacOS 15.0.1
+- LLVM Version 16
+
+
+
+
 ## BF Compiler in Java
 I rewrote the compiler in Java so that the partial evaluation phase could be fast.
 
