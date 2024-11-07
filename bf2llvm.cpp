@@ -33,7 +33,7 @@ std::string clean_code(const std::string& code) {
     return cleaned_code;
 }
 
-// ... [Other functions like is_innermost, is_simple, etc., remain the same] ...
+// Help Functions
 bool is_innermost(const std::string& code, size_t loop_start, size_t loop_end) {
     std::string loop_body = code.substr(loop_start + 1, loop_end - loop_start - 1);
     return loop_body.find('[') == std::string::npos;
@@ -199,7 +199,7 @@ std::string optimize_simple_loops(std::string bf_code, std::map<size_t, std::map
 
     return optimized_code;
 }
-// ... [Include is_innermost, is_simple, is_optimizable_scan_loop, find_loops, optimize_scan_loops, optimize_loop, optimize_simple_loops functions as in your code] ...
+// End of Help Functions
 
 void bf_to_llvm_ir(const std::string& src_bf_code, bool opt_sl, bool opt_scan, llvm::LLVMContext& context, std::unique_ptr<llvm::Module>& module) {
     size_t tape_size = 50000; // Size of the Brainfuck tape
